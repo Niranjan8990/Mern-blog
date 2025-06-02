@@ -1,28 +1,68 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+ import React from 'react'
+import '../styles/Addblog.css'
+import { useState } from 'react'
+import axios from 'axios'
 
-const AddBlog = () => {
-  const [form, setForm] = useState({ title: '', content: '', author: '' });
 
-  const handleChange = e => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+const Addblog= () => {
 
-  const handleSubmit = async e => {
-    e.preventDefault();
-    await axios.post('http://localhost:5000/api/blogs', form);
-    alert('Blog added!');
-  };
+  const [title,setTitle]=useState('')
+  const [author,setAuthor]=useState('')
+  const [content,setContent]=useState('')
+  const baseUrl = import.meta.env.VITE_API_BASE_URL
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    try {
+      const response = await axios.post(`${baseUrl}/addblog`,{
+        title,
+        author,
+        content
+      })
+      console.log(response.data)
+      setTitle('')
+      setAuthor('')
+      setContent('')
+      alert("Blog Created Successfully")
 
+    } catch (error) {
+        console.log("Error Creating Blog!!!")
+    }
+  }
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Add New Blog</h2>
-      <input name="title" placeholder="Title" onChange={handleChange} required />
-      <textarea name="content" placeholder="Content" onChange={handleChange} required />
-      <input name="author" placeholder="Author" onChange={handleChange} required />
-      <button type="submit">Submit</button>
+    <>
+    <h1 className='heading'> Create Your Own Blog...</h1>
+    <form className='input-blog' onSubmit={handleSubmit}>
+        <label htmlFor='title'>Title</label>
+        <input 
+          type='string' 
+          id="title" 
+          placeholder='Enter title' 
+          required 
+          value={title} 
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <label htmlFor='author'>Author</label>
+        <input 
+          type='string' 
+          id='author' 
+          placeholder='Enter Author name' 
+          required 
+          value={author}
+          onChange={(e)=>setAuthor(e.target.value)}
+        />
+        <label htmlFor='content'>Content</label>
+        <input 
+          type='string' 
+          id='content' 
+          placeholder='Enter your thoughts' 
+          required 
+          value={content}
+          onChange={(e)=>setContent(e.target.value)}
+        />
+        <input type='submit' value="CREATE"/>
     </form>
-  );
-};
+    </>
+  )
+}
 
-export default AddBlog;
+export default Addblog
