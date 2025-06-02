@@ -16,8 +16,8 @@ function App() {
         <div className='nav-items'>
           <ul>
             <li> <Link to='/' className='nav-link'> Home</Link> </li>
-            <li> <Link to='/viewblogs' className='nav-link'>View All Blogs</Link></li>
-            <li> <Link to='/addblog' className='nav-link'>Create A Blog</Link></li>
+            <li> <Link to='/viewblogs' className='nav-link'>View Blogs</Link></li>
+            <li> <Link to='/addblog' className='nav-link'>Create Blog</Link></li>
           </ul>
         </div>
       </nav>

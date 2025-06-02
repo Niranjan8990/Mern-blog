@@ -1,0 +1,50 @@
+.home-links{
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;  
+  align-items: stretch; 
+}
+
+.home-links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.home-links ul li a {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.home-link-1 {
+  background-color:  #c8b650;
+  color: #333;
+}
+
+.home-link-1:hover {
+  background-color:  #c8b650;
+}
+
+.home-link-2 {
+  background-color: #c8b650;
+  color: white;
+}
+
+.home-link-2:hover {
+  background-color: #c8b650;
+}

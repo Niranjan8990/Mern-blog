@@ -1,6 +1,10 @@
  .navigationbar{
-  background-color: #10b981;
+  background-color:blueviolet;
   height: 60px;
+  width: 1360px;
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
 }
 
 
